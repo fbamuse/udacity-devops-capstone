@@ -27,6 +27,7 @@ pipeline {
                                 usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']])
                  
                 sh '''
+                    echo "USERNAME"
                     docker login -u $USERNAME -p $PASSWORD
                     docker push bamuse/udacity_devops_capstone
                 ''' 
