@@ -19,8 +19,11 @@ pipeline {
                 echo "ssss"
             }
         }
+
+        // ++++
         def imageName = "bamuse/udacity_devops_capstone"
-        print imageName       
+        print imageName
+
         stage('Build') {
             sh "docker build -t " + imageName + " ."
         }
