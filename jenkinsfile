@@ -20,7 +20,7 @@ pipeline {
             }
         }
         stage('Build') {
-            steps{}
+            steps{
 
                 sh "docker build -t bamuse/udacity_devops_capstone ."
             }
