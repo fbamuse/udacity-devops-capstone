@@ -20,12 +20,10 @@ pipeline {
                 sh "docker build -t bamuse/udacity_devops_capstone ."
             }
             steps{
-
-                withCredentials([[$class: 'UsernamePasswordMultiBinding', 
+                    withCredentials([[$class: 'UsernamePasswordMultiBinding', 
                                 credentialsId: 'dockerhub',
                                 usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
                     sh 'docker login -u $USERNAME -p $PASSWORD'
-                }
             }
             steps{
                 sh "docker push bamuse/udacity_devops_capstone "
