@@ -15,17 +15,21 @@ pipeline {
             }
         }
         stage('Build') {
-            steps{
 
-                sh "docker build -t bamuse/udacity_devops_capstone ."
+            steps{
+                script {
+                    dockerImage = docker.build("amuse/udacity_devops_capstone ", "-f Dockerfile .")
+                }
             }
         }
         stage('push'){
             steps {
                 withCredentials([[$class: 'UsernamePasswordMultiBinding', 
                                 credentialsId: 'dockerhub',
-                                usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']])
-                 
+                                usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]){
+                                usr=USERNAME
+                                pawd=PASSWORD
+                                }
                 sh '''
                     echo "USERNAME"
                     docker login -u $USERNAME -p $PASSWORD
