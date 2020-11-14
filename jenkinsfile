@@ -22,20 +22,6 @@ pipeline {
                 }
             }
         }
-        stage('push'){
-            steps {
-                withCredentials([[$class: 'UsernamePasswordMultiBinding', 
-                                credentialsId: 'dockerhub',
-                                usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]){
-                                usr=USERNAME
-                                pawd=PASSWORD
-                                }
-                sh '''
-                    echo "USERNAME"
-                    docker login -u $USERNAME -p $PASSWORD
-                    docker push bamuse/udacity_devops_capstone
-                ''' 
-            }
-        }
+
     }
 }
