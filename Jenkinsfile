@@ -16,7 +16,11 @@ pipeline {
                 sh 'pwd'
             }
         }
-    
+        stage('GiHubからソースコードのクローン') {
+            steps {
+                git 'https://github.com/fbamuse/udacity-devops-capstone'
+            }
+        }   
 
         stage('Build Docker image') {
             steps {
@@ -38,6 +42,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying to EKS cluster'
+                sh 'echo $KUBECONFIG'
+                sh 'kubectl cluster-info --kubeconfig $KUBECONFIG'
                 sh 'kubectl  apply -f deployment.yml '
                 sh 'kubectl get pods  '
                 sh 'kubectl get services  '
