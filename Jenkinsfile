@@ -35,9 +35,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying to EKS cluster'
-                sh 'sudo kubectl apply -f deployment.yml'
-                sh 'sudo kubectl get pods'
-                sh 'sudo kubectl get services'
+                sh 'kubectl  apply -f deployment.yml  --kubeconfig= /home/fukuhara/.kube/config'
+                sh 'kubectl get pods  --kubeconfig= /home/fukuhara/.kube/config'
+                sh 'kubectl get services  --kubeconfig= /home/fukuhara/.kube/config'
             }
         }    
     }
