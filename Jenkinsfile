@@ -16,11 +16,6 @@ pipeline {
                 sh 'pwd'
             }
         }
-        stage('GiHubからソースコードのクローン') {
-            steps {
-                git 'https://github.com/fbamuse/udacity-devops-capstone'
-            }
-        }   
 
         stage('Build Docker image') {
             steps {
