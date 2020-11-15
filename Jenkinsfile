@@ -37,11 +37,9 @@ pipeline {
 
         stage('Create kube config file') {
             steps {
-                withAWS(region: 'us-west-2', credentials: 'awscli') {
                 sh '''
                             aws eks --region  us-west-2 update-kubeconfig --name bamuse
                     '''
-                }
 
             }
         }
