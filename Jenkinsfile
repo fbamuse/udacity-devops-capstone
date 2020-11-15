@@ -4,6 +4,7 @@ pipeline {
         work_dir='/home/jenkins/work'
         bundle='/home/jenkins/bin/bundle'
         deploy_dir='/home/jenkins/deploy'
+        KUBECONFIG = credentials('kubeconfig')
     }
     stages { // 私の場合、特にステージごとの環境変数は必要なかったです。
         stage('Check Environment') {
@@ -12,8 +13,11 @@ pipeline {
             }
             steps {
                 sh 'printenv'
+                sh 'pwd'
             }
         }
+    
+
         stage('Build Docker image') {
             steps {
                 echo 'Building the Docker container...'
@@ -29,7 +33,6 @@ pipeline {
                         dockerImage.push()
                     }
                 }
-
             }
         }
         stage('Deploy') {
