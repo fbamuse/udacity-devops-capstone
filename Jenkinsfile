@@ -18,7 +18,7 @@ pipeline {
 
             steps{
                 script {
-                    dockerImage = docker.build("bamuse/udacity_devops_capstone ")
+                    dockerImage = docker.build("bamuse/udacity_devops_capstone")
                 }
             }
         }
@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script {
                 docker.withRegistry( '', 'dockerhub' ) {
-                    dockerImage.push()
+                    dockerImage.push("bamuse/udacity_devops_capstone")
                 }
                 }
 
