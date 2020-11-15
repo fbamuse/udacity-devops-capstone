@@ -22,5 +22,15 @@ pipeline {
                 }
             }
         }
+        stage('Upload container to Docker Registry') {
+            steps {
+                script {
+                docker.withRegistry( '', 'dockerhub' ) {
+                    dockerImage.push()
+                }
+                }
+
+            }
+            }
     }
 }
