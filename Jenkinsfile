@@ -21,7 +21,7 @@ pipeline {
                     docker.withRegistry( '', 'dockerhub' ) {
                         dockerImage = docker.build()
                         dockerImage.push("bamuse/udacity_devops_capstone")
-                        dockerImage.push("bamuse/udacity_devops_capstone"))
+                        dockerImage.push("bamuse/udacity_devops_capstone")
                     }
                 }
 
