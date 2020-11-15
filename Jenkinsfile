@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { dockerfile true }
     environment {
         work_dir='/home/jenkins/work'
         bundle='/home/jenkins/bin/bundle'
