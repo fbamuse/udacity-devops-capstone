@@ -35,9 +35,10 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying to EKS cluster'
-                sh 'kubectl apply -f deployment.yml'
-                sh 'kubectl get pods'
-                sh 'kubectl get services'
+                sh 'sudo kubectl apply -f deployment.yml'
+                sh 'sudo kubectl get pods'
+                sh 'sudo kubectl get services'
+            }
         }    
     }
 }
