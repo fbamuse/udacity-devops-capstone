@@ -14,18 +14,25 @@ pipeline {
                 sh 'printenv'
             }
         }
+        stage('Build Docker image') {
+            steps {
+                echo 'Building the Docker container...'
+                script {
+                dockerImage = docker.build("bamuse/udacity_devops_capstone")
+                }
+            }
+        }
+
 
         stage('Upload container to Docker Registry') {
             steps {
                 script {
                     docker.withRegistry( '', 'dockerhub' ) {
-                        dockerImage = docker.build()
-                        dockerImage.push("bamuse/udacity_devops_capstone")
-                        dockerImage.push("bamuse/udacity_devops_capstone")
+                        dockerImage.push()
                     }
                 }
 
             }
-            }
+        }
     }
 }
