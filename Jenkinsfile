@@ -22,8 +22,6 @@ pipeline {
                 }
             }
         }
-
-
         stage('Upload container to Docker Registry') {
             steps {
                 script {
@@ -34,5 +32,12 @@ pipeline {
 
             }
         }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying to EKS cluster'
+                sh 'kubectl apply -f deployment.yml'
+                sh 'kubectl get pods'
+                sh 'kubectl get services'
+        }    
     }
 }
