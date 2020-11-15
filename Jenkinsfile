@@ -46,16 +46,17 @@ pipeline {
             }
         }
         stage('Deploy') {
-        steps {
-            echo 'Deploying to EKS cluster'
-            withAWS(region: 'ap-northeast-1', credentials: 'awscli') {
-            echo 'Deploying to EKS cluster'
-            sh 'aws eks --region ap-northeast-1 update-kubeconfig --name capstone'
-            sh 'kubectl apply -f deployment.yml'
-            sh 'kubectl get pods'
-            sh 'kubectl get services'
-            }
+            steps {
+                echo 'Deploying to EKS cluster'
+                withAWS(region: 'ap-northeast-1', credentials: 'awscli') {
+                echo 'Deploying to EKS cluster'
+                sh 'aws eks --region ap-northeast-1 update-kubeconfig --name capstone'
+                sh 'kubectl apply -f deployment.yml'
+                sh 'kubectl get pods'
+                sh 'kubectl get services'
+                }
 
-        }    
-    }
+            }    
+        }
+    }   
 }
