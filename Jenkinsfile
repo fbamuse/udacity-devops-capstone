@@ -18,16 +18,17 @@ pipeline {
 
             steps{
                 script {
-                    dockerImage = docker.build("bamuse/udacity_devops_capstone")
+                    dockerImage = docker.build()
                 }
             }
         }
         stage('Upload container to Docker Registry') {
             steps {
                 script {
-                docker.withRegistry( '', 'dockerhub' ) {
-                    dockerImage.push("bamuse/udacity_devops_capstone")
-                }
+                    docker.withRegistry( '', 'dockerhub' ) {
+                        dockerImage.push("bamuse/udacity_devops_capstone")
+                        dockerImage.push("latest")
+                    }
                 }
 
             }
