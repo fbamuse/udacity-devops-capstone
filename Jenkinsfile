@@ -37,7 +37,7 @@ pipeline {
                 echo 'Deploying to EKS cluster'
                 sh 'kubectl  apply -f deployment.yml '
                 sh 'kubectl get pods  '
-                sh 'kubectl get services  
+                sh 'kubectl get services  '
             }
         }    
     }
