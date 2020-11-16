@@ -32,7 +32,7 @@ spec:
           image: "bamuse/udacity_devops_capston"
           imagePullPolicy: "Always"
           ports:
-            - containerPort: 8080
+            - containerPort: 80
           resources:
             limits:
               memory: "64Mi"
