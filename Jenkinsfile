@@ -39,9 +39,9 @@ pipeline {
             steps {
                 echo 'Deploying to EKS cluster'
 
-                sh 'aws sts get-caller-identity'
+                withAWS(region: 'ap-northeast-1 ', credentials: 'awscli') {           
                 sh 'aws eks --region ap-northeast-1 update-kubeconfig --name bamuse'
-                
+                }
             }
         }
         stage('Deploy') {
