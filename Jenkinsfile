@@ -41,7 +41,7 @@ pipeline {
                 withAWS(region: 'ap-northeast-1', credentials: 'awscli') {
                 sh 'aws sts get-caller-identity'
                 sh 'aws eks --region ap-northeast-1 update-kubeconfig --name bamuse'
-
+                }
             }
         }
         stage('Deploy') {
