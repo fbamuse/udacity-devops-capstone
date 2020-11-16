@@ -37,18 +37,19 @@ pipeline {
 
         stage('Create kube config file') {
             steps {
-                sh '''
-                            aws eks --region  us-west-2 update-kubeconfig --name bamuse
-                    '''
+                echo 'Deploying to EKS cluster'
+                withAWS(region: 'ap-northeast-1', credentials: 'awscli') {
+                sh 'aws sts get-caller-identity'
+                sh 'aws eks --region ap-northeast-1 update-kubeconfig --name bamuse'
 
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying to EKS cluster'
-                withAWS(region: ' us-west-2 ', credentials: 'awscli') {
+                withAWS(region: 'ap-northeast-1 ', credentials: 'awscli') {
                 echo 'Deploying to EKS cluster'
-                sh 'aws eks --region  us-west-2  update-kubeconfig --name bamuse'
+                sh 'aws eks --region  ap-northeast-1  update-kubeconfig --name bamuse'
                 sh 'kubectl apply -f deployment.yml'
                 sh 'kubectl get pods'
                 sh 'kubectl get services'
