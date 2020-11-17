@@ -16,13 +16,14 @@ pipeline {
                 sh 'pwd'
             }
         }
-        stage('Build Docker image') {
+        stage('lint Dockerfile') {
             steps {
-                echo 'Building the Docker container...'
+                echo 'Lint dockerfile...'
                 script  {
                     sh 'docker run --rm -i hadolint/hadolint < Dockerfile'
                 }
             }
+        }
         stage('Build Docker image') {
             steps {
                 echo 'Building the Docker container...'
