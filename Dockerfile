@@ -2,7 +2,7 @@ FROM alpine:3.6
 
 RUN apk update && \
     apk add --no-cache nginx=1.12.2-r2
-COPY app/index.html  /var/www/html/
+#COPY app/index.html  /var/www/html/
 #COPY default.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 
