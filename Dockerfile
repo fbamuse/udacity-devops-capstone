@@ -4,7 +4,7 @@ RUN apk update && \
     apk add --no-cache nginx=1.12.2-r2
 COPY app /app
 COPY default.conf /etc/nginx/conf.d/default.conf
-EXPOSE 90
+EXPOSE 80
 
 #RUN mkdir -p /run/nginx
 
