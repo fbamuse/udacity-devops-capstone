@@ -26,7 +26,7 @@ spec:
       app: capstone-project
   template:
     metadata:
-      labels:kubectl get de
+      labels:
         app: capstone-project
     spec:
       containers:
