@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
         - name: capstone-project
-          image: "bamuse/udacity_devops_capstone"
+          image: "bamuse/udacity_devops_capstone:latest"
 #          image: nginx
           imagePullPolicy: "Always"
           ports:
