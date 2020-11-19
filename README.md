@@ -12,4 +12,11 @@ Create a pipeline in Jenkins to run a simple web app on Kubernetss.
      - Finally, register with the cluster and start the service
 
 
+![](2020-11-20-00-19-59.png)
 
+![](2020-11-20-00-23-27.png)
+
+![](2020-11-20-00-24-12.png)
+
+
+![](2020-11-20-00-25-00.png)
