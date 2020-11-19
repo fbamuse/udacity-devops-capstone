@@ -1,3 +1,4 @@
-FROM nginx:1.18.0
+FROM nginx
+
 
 COPY app/index.html /usr/share/nginx/html
